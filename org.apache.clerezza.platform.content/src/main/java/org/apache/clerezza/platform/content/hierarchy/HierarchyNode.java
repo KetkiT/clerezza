@@ -76,8 +76,11 @@ public class HierarchyNode extends GraphNode {
 			UriRef parentCollectionUri = HierarchyUtils
 					.extractParentCollectionUri(getNode());
 			return hierarchyService.getCollectionNode(parentCollectionUri);
+<<<<<<< HEAD:org.apache.clerezza.platform.content/src/main/java/org/apache/clerezza/platform/content/hierarchy/HierarchyNode.java
 		} catch (UnknownRootExcetpion ex) {
 			throw new RuntimeException(ex);
+=======
+>>>>>>> 57f76639... CLEREZZA-129: revised places where encoding happens:org.apache.clerezza.parent/org.apache.clerezza.platform.content/src/main/java/org/apache/clerezza/platform/content/hierarchy/HierarchyNode.java
 		} catch (NodeDoesNotExistException ex) {
 			throw new RuntimeException(ex);
 		}
@@ -149,6 +152,7 @@ public class HierarchyNode extends GraphNode {
 		if (parentMembers.contains(newUri) || parentMembers.contains(alternativeUri)) {
 			HierarchyNode existingNode = null;
 			try {
+<<<<<<< HEAD:org.apache.clerezza.platform.content/src/main/java/org/apache/clerezza/platform/content/hierarchy/HierarchyNode.java
 				try {
 					existingNode = hierarchyService.getHierarchyNode(newUri);
 				} catch (NodeDoesNotExistException ex) {
@@ -157,6 +161,14 @@ public class HierarchyNode extends GraphNode {
 					} catch (NodeDoesNotExistException e) {
 						throw new RuntimeException(ex);
 					}
+=======
+				existingNode = hierarchyService.getHierarchyNode(newUri);
+			} catch (NodeDoesNotExistException ex) {
+				try {
+					existingNode = hierarchyService.getHierarchyNode(alternativeUri);
+				} catch (NodeDoesNotExistException e) {
+					throw new RuntimeException(ex);
+>>>>>>> 57f76639... CLEREZZA-129: revised places where encoding happens:org.apache.clerezza.parent/org.apache.clerezza.platform.content/src/main/java/org/apache/clerezza/platform/content/hierarchy/HierarchyNode.java
 				}
 			} catch (UnknownRootExcetpion ex) {
 				throw new RuntimeException(ex);

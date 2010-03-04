@@ -92,10 +92,14 @@ public class HierarchyService {
 	 * @param uri
 	 */
 	public HierarchyNode getHierarchyNode(UriRef uri)
+<<<<<<< HEAD:org.apache.clerezza.platform.content/src/main/java/org/apache/clerezza/platform/content/hierarchy/HierarchyService.java
 			throws NodeDoesNotExistException, UnknownRootExcetpion {
 		if (!hasKnownRoot(uri)) {
 			throw new UnknownRootExcetpion(extractBaseUri(uri));
 		}
+=======
+			throws NodeDoesNotExistException {
+>>>>>>> 57f76639... CLEREZZA-129: revised places where encoding happens:org.apache.clerezza.parent/org.apache.clerezza.platform.content/src/main/java/org/apache/clerezza/platform/content/hierarchy/HierarchyService.java
 		HierarchyNode hierarchyNode;
 		try {
 			CollectionNode collectionNode =
@@ -143,10 +147,14 @@ public class HierarchyService {
 	 * @param uri
 	 */
 	public CollectionNode getCollectionNode(UriRef uri)
+<<<<<<< HEAD:org.apache.clerezza.platform.content/src/main/java/org/apache/clerezza/platform/content/hierarchy/HierarchyService.java
 			throws NodeDoesNotExistException, UnknownRootExcetpion{
 		if (!hasKnownRoot(uri)) {
 			throw new UnknownRootExcetpion(extractBaseUri(uri));
 		}
+=======
+			throws NodeDoesNotExistException{
+>>>>>>> 57f76639... CLEREZZA-129: revised places where encoding happens:org.apache.clerezza.parent/org.apache.clerezza.platform.content/src/main/java/org/apache/clerezza/platform/content/hierarchy/HierarchyService.java
 		CollectionNode collectionNode;
 		try {
 			collectionNode =

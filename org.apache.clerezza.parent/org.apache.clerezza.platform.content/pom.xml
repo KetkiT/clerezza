@@ -93,6 +93,7 @@
 			<groupId>org.apache.clerezza</groupId>
 			<artifactId>org.apache.clerezza.rdf.metadata</artifactId>
 		</dependency>
+<<<<<<< HEAD
 		<dependency>
 			<groupId>org.apache.clerezza</groupId>
 			<artifactId>org.apache.clerezza.rdf.core.test</artifactId>
@@ -103,6 +104,8 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+=======
+>>>>>>> 57f76639... CLEREZZA-129: revised places where encoding happens
 	</dependencies>
 	<build>
 		<plugins>
