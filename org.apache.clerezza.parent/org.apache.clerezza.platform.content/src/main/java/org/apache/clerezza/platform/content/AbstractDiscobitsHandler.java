@@ -24,7 +24,15 @@ import java.util.Iterator;
 
 import java.util.Set;
 import javax.ws.rs.core.MediaType;
+<<<<<<< HEAD
 import org.apache.clerezza.platform.content.collections.CollectionCreator;
+=======
+import org.apache.clerezza.platform.content.hierarchy.HierarchyNode;
+import org.apache.clerezza.platform.content.hierarchy.HierarchyService;
+import org.apache.clerezza.platform.content.hierarchy.NodeAlreadyExistsException;
+import org.apache.clerezza.platform.content.hierarchy.NodeDoesNotExistException;
+import org.apache.clerezza.platform.content.hierarchy.UnknownRootExcetpion;
+>>>>>>> 0ac291d9... CLEREZZA-155: UnknownRootException is thrown when getHierarchy/CollectionNode() is called whose URIs base URI is not known
 
 import org.apache.clerezza.rdf.core.LiteralFactory;
 import org.apache.clerezza.rdf.core.MGraph;
@@ -115,7 +123,24 @@ public abstract class AbstractDiscobitsHandler implements DiscobitsHandler {
 				return;
 			}			
 		}
+<<<<<<< HEAD
 		GraphNode graphNode = new GraphNode(node, mGraph);
+=======
+		GraphNode graphNode;
+		try {
+			HierarchyService hierarchyService = getHierarchyService();
+			if (hierarchyService == null) {
+				graphNode = new GraphNode(node, mGraph);
+			} else {
+				graphNode = hierarchyService.getHierarchyNode((UriRef) node);
+				((HierarchyNode) graphNode).delete();
+			}
+		} catch (NodeDoesNotExistException ex) {
+			graphNode = new GraphNode(node, mGraph);
+		} catch (UnknownRootExcetpion ex) {
+			graphNode = new GraphNode(node, mGraph);
+		}
+>>>>>>> 0ac291d9... CLEREZZA-155: UnknownRootException is thrown when getHierarchy/CollectionNode() is called whose URIs base URI is not known
 		graphNode.deleteNodeContext();
 	}
 
