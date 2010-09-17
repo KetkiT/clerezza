@@ -1,0 +1,37 @@
+resultDocModifier.addScriptReference("/scripts/ajax-options.js");
+
+resultDocModifier.addScriptReference("/concepts/generic-resource/scripts/concept-find-create.js");
+resultDocModifier.addScriptReference("/concepts/generic-resource/scripts/jquery.rdfquery.core-1.0.js");
+
+resultDocModifier.addScriptReference("/scripts/alert-message.js");
+resultDocModifier.addScriptReference("/yui/2/yahoo-dom-event/yahoo-dom-event.js");
+resultDocModifier.addScriptReference("/yui/2/element/element-min.js");
+resultDocModifier.addScriptReference("/yui/2/container/container-min.js");
+resultDocModifier.addStyleSheet("/yui/2/container/assets/container-core.css");
+
+
+<div>Add Concepts</div>
+<form onsubmit="return ConceptFinder.search()" id="search-form">
+	<br/>
+	<input type="text" value="" name="search-term"/>
+	<a href="#" id="go-button" class="tx-icon tx-icon-search">Go</a>
+	<br/>
+	<br/>
+	<div id="system-found-concepts-area">
+		<div id="label-for-search-results">
+			Found Concepts:
+		</div>
+		<br/>
+		<div id="system-found-concepts"></div>
+	</div>
+	<br/>
+	<div id="user-defined-concept-area">
+		<div id="add-button-label"></div>
+		<div>Description (optional):</div>
+		<textarea rows="8" id="concept-description" name="comment"/>
+		<input type="hidden" value="en" name="lang"/>
+		<div>
+			<a href="#" class="tx-icon tx-icon-plus" id="add-user-defined-concept">Add</a>
+		</div>
+	</div>
+</form>

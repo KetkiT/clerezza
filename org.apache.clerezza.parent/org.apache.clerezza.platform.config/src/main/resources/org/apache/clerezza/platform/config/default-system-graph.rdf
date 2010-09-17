@@ -1,0 +1,68 @@
+<rdf:RDF
+		xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+		xmlns:perm="http://clerezza.org/2008/10/permission#"
+		xmlns:foaf="http://xmlns.com/foaf/0.1/"
+		xmlns:dc="http://purl.org/dc/elements/1.1/"
+		xmlns:sioc="http://rdfs.org/sioc/ns#"
+		xmlns:plat="http://clerezza.org/2009/08/platform#"
+		xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+	<perm:Role>
+		<dc:title>CommunityUser</dc:title>
+		<perm:hasPermission rdf:parseType="Resource">
+			<perm:javaPermissionEntry>(org.apache.clerezza.rdf.core.access.security.TcPermission "http://tpf.localhost/user/{username}/*" "readwrite")</perm:javaPermissionEntry>
+		</perm:hasPermission>
+		<perm:hasPermission rdf:parseType="Resource">
+			<perm:javaPermissionEntry>(org.apache.clerezza.platform.accountcontrolpanel.UserBundlePermission "{username}" "")</perm:javaPermissionEntry>
+		</perm:hasPermission>
+	</perm:Role>
+	<plat:Instance></plat:Instance>
+	<foaf:Agent>
+		<plat:userName>anonymous</plat:userName>
+		<sioc:has_function>
+			<perm:Role>
+				<dc:title>BasePermissionsRole</dc:title>
+				<rdfs:comment>Every user implicitely has this role as this is a perm:BaseRole</rdfs:comment>
+				<rdf:type rdf:resource="http://clerezza.org/2008/10/permission#BaseRole"/>
+				<perm:hasPermission rdf:parseType="Resource">
+					<perm:javaPermissionEntry>(java.util.PropertyPermission "*" "read")</perm:javaPermissionEntry>
+				</perm:hasPermission>
+				<perm:hasPermission rdf:parseType="Resource">
+					<perm:javaPermissionEntry>(org.osgi.framework.AdminPermission "*" "resource")</perm:javaPermissionEntry>
+				</perm:hasPermission>
+				<perm:hasPermission rdf:parseType="Resource">
+					<perm:javaPermissionEntry>(org.apache.clerezza.rdf.core.access.security.TcPermission "http://tpf.localhost/content.graph" "read")</perm:javaPermissionEntry>
+				</perm:hasPermission>
+				<perm:hasPermission rdf:parseType="Resource">
+					<perm:javaPermissionEntry>(org.apache.clerezza.rdf.core.access.security.TcPermission "http://tpf.localhost/documentation.graph" "read")</perm:javaPermissionEntry>
+				</perm:hasPermission>
+				<perm:hasPermission rdf:parseType="Resource">
+					<perm:javaPermissionEntry>(org.apache.clerezza.rdf.core.access.security.TcPermission "http://tpf.localhost/config.graph" "read")</perm:javaPermissionEntry>
+				</perm:hasPermission>				
+			</perm:Role>
+		</sioc:has_function>
+	</foaf:Agent>
+	<perm:Role>
+		<dc:title>DefaultRole</dc:title>
+		<rdfs:comment>A role regular users typically have</rdfs:comment>
+		<perm:hasPermission rdf:parseType="Resource">
+			<perm:javaPermissionEntry>(org.apache.clerezza.platform.accountcontrolpanel.AccountControlPanelAppPermission "{username}" "")</perm:javaPermissionEntry>
+		</perm:hasPermission>
+		<perm:hasPermission rdf:parseType="Resource">
+			<perm:javaPermissionEntry>(org.apache.clerezza.platform.accountcontrolpanel.ChangePasswordPermission "{username}" "")</perm:javaPermissionEntry>
+		</perm:hasPermission>
+	</perm:Role>
+	<rdf:Description rdf:about="http://tpf.localhost/typePriorityList">
+		<rdf:rest rdf:parseType="Collection">
+			<rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+		</rdf:rest>
+		<rdf:first rdf:resource="http://clerezza.org/2009/07/script#ScriptGeneratedResource"/>
+	</rdf:Description>
+	<foaf:Agent>
+		<perm:hasPermission rdf:parseType="Resource">
+			<perm:javaPermissionEntry>(java.security.AllPermission "" "")</perm:javaPermissionEntry>
+		</perm:hasPermission>
+		<plat:userName>admin</plat:userName>
+		<foaf:mbox rdf:resource="mailto:noreply@clerezza.org"/>
+		<perm:passwordSha1>d033e22ae348aeb5660fc2140aec35850c4da997</perm:passwordSha1>
+	</foaf:Agent>
+</rdf:RDF>

@@ -1,0 +1,20 @@
+def skos(s: Any) = new UriRef("http://www.w3.org/2008/05/skos#"+s)
+def dct(s: Any) = new UriRef("http://purl.org/dc/terms/"+s)
+
+resultDocModifier.addScriptReference("/concepts/generic-resource/scripts/selected-concepts.js");
+
+<div>
+	<div id="selected-concepts">
+		{for (concept <- (res/dct("subject"))) yield {
+		<div>
+			<div>PrefLabel: {concept/skos("prefLabel")*}</div>
+			<div>Uri: {concept*}</div>
+			<input type="hidden" name="concepts" value={concept*}></input>
+			<a href="#" class="tx-icon tx-icon-delete" >Remove</a>
+			<br />
+			<br />
+		</div>
+		}
+		}
+	</div>
+</div>
